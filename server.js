@@ -1,6 +1,6 @@
 const express = require("express");
 const router = require("./routes/index");
-const ejs = require("ejs");
+
 const app = express();
 const bodyParser = require("body-parser");
 app.set("view engine", "ejs");

@@ -15,11 +15,11 @@ const messages = [
 ];
 
 router.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+  res.render("index", { title: "WeChat", messages });
 });
 
 router.get("/new", (req, res) => {
-  res.render("form");
+  res.render("form", { title: "New Message" });
 });
 
 router.post("/new", (req, res) => {

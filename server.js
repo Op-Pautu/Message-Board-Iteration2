@@ -2,11 +2,9 @@ const express = require("express");
 const router = require("./routes/index");
 const ejs = require("ejs");
 const app = express();
+const bodyParser = require("body-parser");
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 app.set("view engine", "ejs");
 

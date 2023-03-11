@@ -9,8 +9,34 @@
 </head>
 
 <body>
-    afasdaskjdaslsa
+
     <h1>Doumo Konnichiwa</h1>
+    <h2>Message Board</h2>
+
+
+    <form action="/messages" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <label for="message">Message</label>
+        <input type="text" name="message" id="message">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+        <% messages.map(message=> { %>
+            <li>
+                <h3>
+                    <%= message.text %>
+                </h3>
+                <p>
+                    <%= message.user %>
+                </p>
+                <span>
+                    <%= message.added.toLocaleDateString()%>
+                </span>
+            </li>
+            <% }) %>
+    </ul>
 </body>
 
 </html>

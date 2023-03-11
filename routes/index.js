@@ -15,11 +15,20 @@ const messages = [
 ];
 
 router.get("/", (req, res) => {
-  res.send("Hello Worlsadasd");
+  res.render("index", { messages: messages });
 });
 
 router.get("/new", (req, res) => {
-  res.render("index", { messages: messages });
+  res.render("form");
+});
+
+router.post("/new", (req, res) => {
+  messages.push({
+    text: req.body.message,
+    user: req.body.sender,
+    added: new Date(),
+  });
+  res.redirect("/");
 });
 
 module.exports = router;
